@@ -64,8 +64,8 @@ const characterMap = {
   'ピャ': 'pya', 'ピュ': 'pyu', 'ピョ': 'pyo'
 }
 
-const hiragana = Object.keys(characterMap).slice(0, 107)
-const katakana = Object.keys(characterMap).slice(107)
+const hiragana = Object.keys(characterMap).slice(0, 104)
+const katakana = Object.keys(characterMap).slice(104)
 
 const hiraganaRows = {
   seion: [
