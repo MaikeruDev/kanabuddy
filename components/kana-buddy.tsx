@@ -475,24 +475,26 @@ const funFacts = [
                   <div className="mt-4 text-2xl font-bold">{formatTime(timer)}</div>
                 </div>
               )}
-              <div className="lg:hidden mb-4 mt-4">
-              <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-                  <DialogTrigger asChild>
-                    <Button variant="outline" className="w-full lg:hidden" disabled={isStarted}>
-                      Select Kana ({selectedCharacters.length})
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="sm:max-w-[425px]">
-                    <DialogHeader>
-                      <DialogTitle>Select Kana Characters</DialogTitle>
-                    </DialogHeader>
-                    <SelectKanaSection />
-                    <DialogFooter>
-                      <Button onClick={() => setIsDialogOpen(false)}>Done</Button>
-                    </DialogFooter>
-                  </DialogContent>
-                </Dialog>
-              </div>
+              {!isStarted && !isComplete && (
+                <div className="lg:hidden mb-4 mt-4">
+                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                    <DialogTrigger asChild>
+                      <Button variant="outline" className="w-full lg:hidden" disabled={isStarted}>
+                        Select Kana ({selectedCharacters.length})
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[425px]">
+                      <DialogHeader>
+                        <DialogTitle>Select Kana Characters</DialogTitle>
+                      </DialogHeader>
+                      <SelectKanaSection />
+                      <DialogFooter>
+                        <Button onClick={() => setIsDialogOpen(false)}>Done</Button>
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
+                </div>
+              )}
               {!isStarted && <InfoCards />}
               <AnimatePresence>
                 {showCelebration && (
